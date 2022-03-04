@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Главная страница";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>Наши продукты</h3>
+        <table class="table-bordered">
+            <tr>
+                <td><p>Название</p></td>
+                <td><p>Описание</p></td>
+                <td><p>Цена</p></td>
+            </tr>
+            @foreach (var p in ViewBag.Products)
+            {
+                <tr><td><p>@p.Name</p></td><td><p>@p.Description</p></td><td><p>@p.Price</p></td></tr>
+            }
+        </table>
+        <p><a class="btn btn-default" href="/Orders/Create">Сделать заказ &raquo;</a></p>
+    </div>
+</div>

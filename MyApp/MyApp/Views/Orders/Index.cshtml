@@ -1,0 +1,70 @@
+﻿@model IEnumerable<MyApp.Models.Order>
+
+@{
+    ViewBag.Title = "Заказы";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Заказы</h2>
+
+<p>
+    @Html.ActionLink("Оформить новый заказ", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { id=item.OrderId }) |
+            @Html.ActionLink("Подробнее", "Details", new { id=item.OrderId }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.OrderId })
+        </td>
+    </tr>
+}
+
+</table>
